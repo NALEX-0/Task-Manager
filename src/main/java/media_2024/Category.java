@@ -1,6 +1,8 @@
 package media_2024;
 
-public class Category {
+import java.io.Serializable;
+
+public class Category implements Serializable {
     private int id;
     private String name;
 
@@ -16,6 +18,9 @@ public class Category {
     }
     public String getName() {
         return name;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
     public void setName(String name) {
         this.name = name;

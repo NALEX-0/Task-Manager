@@ -1,11 +1,10 @@
 package media_2024;
 
-public class Priority {
+import java.io.Serializable;
+
+public class Priority implements Serializable {
     private int id;
     private String name;
-
-    // Default priority
-    public static final Priority DEFAULT = new Priority(1, "Default");
 
     // Constructor
     public Priority(int id, String name) {
@@ -14,19 +13,24 @@ public class Priority {
     }
 
     // Getters and Setters
-    public int getId() { 
-        return id; 
+    public int getId() {
+        return id;
     }
-    public String getName() { 
-        return name; 
+
+    public void setId(int id) {
+        this.id = id;
     }
-    public void setName(String name) { 
-        this.name = name; 
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public String toString() {
-        return "Priority{id=" + id + ", name='" + name + "'}";
+        return "Priority{" + "id=" + id + ", name='" + name + '\'' + '}';
     }
 }
-
