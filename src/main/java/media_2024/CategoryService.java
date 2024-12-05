@@ -6,7 +6,7 @@ import java.util.List;
 
 public class CategoryService implements Serializable {
     private List<Category> categories = new ArrayList<>();
-    private static final String CATEGORIES_FILE = "Category.ser";
+    private static final String CATEGORIES_FILE = "Category.json";
     private int nextId = 1; // Keeps track of the next available ID
 
     public CategoryService() {

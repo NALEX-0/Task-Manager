@@ -6,7 +6,7 @@ import java.util.List;
 
 public class PriorityService implements Serializable {
     private List<Priority> priorities = new ArrayList<>();
-    private static final String PRIORITIES_FILE = "Priority.ser";
+    private static final String PRIORITIES_FILE = "Priority.json";
     private static final Priority DEFAULT_PRIORITY  = new Priority (1, "Default");
     private int nextId = 2; // Keeps track of the next available ID, 1 is the Default
 

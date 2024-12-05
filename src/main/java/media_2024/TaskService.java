@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class TaskService {
     private List<Task> tasks = new ArrayList<>();
-    private static final String TASKS_FILE = "Task.ser";
+    private static final String TASKS_FILE = "Task.json";
     private int nextId = 1; // Keeps track of the next available ID
 
     public TaskService() {
@@ -41,7 +41,7 @@ public class TaskService {
 
     // Updates Tasks with changed Priority
     public static void updateTasksWithChangedPriority(Priority updatedpriority) {
-        List<Task> tasks = JSONHandler.readData("Task.ser", Task.class);
+        List<Task> tasks = JSONHandler.readData("Task.json", Task.class);
     
         tasks.forEach(task -> {
             if (task.getPriority().getId() == updatedpriority.getId()) {
@@ -49,13 +49,13 @@ public class TaskService {
             }
         });
     
-        JSONHandler.writeData("Task.ser", tasks);
+        JSONHandler.writeData("Task.json", tasks);
     }
     
 
     // Updates Tasks with changed Category
     public static void updateTasksWithChangedCategory(Category updatedCategory) {
-        List<Task> tasks = JSONHandler.readData("Task.ser", Task.class);
+        List<Task> tasks = JSONHandler.readData("Task.json", Task.class);
     
         tasks.forEach(task -> {
             if (task.getCategory().getId() == updatedCategory.getId()) {
@@ -63,7 +63,7 @@ public class TaskService {
             }
         });
     
-        JSONHandler.writeData("Task.ser", tasks);
+        JSONHandler.writeData("Task.json", tasks);
     }
     
     // Delete Task with the specified id
@@ -74,10 +74,10 @@ public class TaskService {
 
     // Delete all Tasks with the specified Category
     public static void deleteTasksByCategory(Category category) {
-        List<Task> tasks = JSONHandler.readData("Task.ser", Task.class);
+        List<Task> tasks = JSONHandler.readData("Task.json", Task.class);
     
         tasks.removeIf(task -> task.getCategory().equals(category));
-        JSONHandler.writeData("Task.ser", tasks);
+        JSONHandler.writeData("Task.json", tasks);
     }
     
 
