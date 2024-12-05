@@ -23,7 +23,7 @@ public class User implements Serializable {
         this.Username = username;
     }
 
-    // Getters
+    // Getters and Setters
     public String getUsername() {
         return Username;
     }
@@ -40,19 +40,15 @@ public class User implements Serializable {
         return email;
     }
 
-    // Setters (for modifying the fields if need it)
     public void setPassword(String password) {
         this.Password = password;
     }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
     public void setEmail(String email) {
         this.email = email;
     } 

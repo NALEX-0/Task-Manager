@@ -3,8 +3,8 @@ package media_2024;
 import java.io.Serializable;
 
 public class Priority implements Serializable {
-    private int id;
-    private String name;
+    private int id;             // Unique identifier
+    private String name;        // Priority name (e.g., High, Medium)
 
     // Constructor
     public Priority(int id, String name) {

@@ -7,9 +7,9 @@ public class Task implements Serializable {
     private int id;                   // Unique identifier
     private String title;             // Title of the task
     private String description;       // Description of the task
-    private String category;          // Category of the task
-    private String priority;          // Priority level
-    private LocalDate dueDate;        // Deadline (without time)
+    private Category category;          // Category of the task
+    private Priority priority;          // Priority level
+    private LocalDate dueDate;        // Deadline (e.g., 2024-12-10)
     private String status;            // Status (e.g., Open, In Progress, etc.)
 
     public static final String STATUS_OPEN = "Open";
@@ -19,7 +19,7 @@ public class Task implements Serializable {
     public static final String STATUS_DELAYED = "Delayed";
 
     // Constructor
-    public Task(int id, String title, String description, String category, String priority, LocalDate dueDate) {
+    public Task(int id, String title, String description, Category category, Priority priority, LocalDate dueDate) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -54,19 +54,19 @@ public class Task implements Serializable {
         this.description = description;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
-    public String getPriority() {
+    public Priority getPriority() {
         return priority;
     }
 
-    public void setPriority(String priority) {
+    public void setPriority(Priority priority) {
         this.priority = priority;
     }
 
@@ -94,8 +94,8 @@ public class Task implements Serializable {
 
     @Override
     public String toString() {
-        return "Task{" + "id=" + id + ", title='" + title + '\'' + ", description='" + description + '\'' + ", category='" + category + '\'' 
-        + ", priority='" + priority + '\'' + ", dueDate=" + dueDate + ", status='" + status + '\'' + '}';
+        return "Task{" + "id=" + id + ", title='" + title + '\'' + ", description='" + description + '\'' + ", category='" + category.getName() + '\'' 
+        + ", priority='" + priority.getName() + '\'' + ", dueDate=" + dueDate + ", status='" + status + '\'' + '}';
     }
 }
 
