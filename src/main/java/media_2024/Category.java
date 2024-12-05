@@ -12,15 +12,18 @@ public class Category implements Serializable {
         this.name = name;
     }
 
+    // Default constructor required for Jackson
+    public Category() {}
+
     // Getters and Setters
     public int getId() {
         return id;
     }
-    public String getName() {
-        return name;
-    }
     public void setId(int id) {
         this.id = id;
+    }
+    public String getName() {
+        return name;
     }
     public void setName(String name) {
         this.name = name;

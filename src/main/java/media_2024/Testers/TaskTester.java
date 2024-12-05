@@ -1,11 +1,13 @@
 package media_2024.Testers;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 import media_2024.Category;
 import media_2024.CategoryService;
+import media_2024.Notification;
 import media_2024.Priority;
 import media_2024.PriorityService;
 import media_2024.Task;
@@ -24,7 +26,7 @@ public class TaskTester {
         List<Integer> createdPriorityIds = new ArrayList<>();
 
         try {
-            // 1. Δημιουργία Κατηγοριών και Προτεραιοτήτων
+            // 1. Create Category and Priority
             categoryService.addCategory("TT-Work");
             priorityService.addPriority("TT-High");
 
@@ -34,7 +36,7 @@ public class TaskTester {
             Category workCategory = categoryService.getCategoryById(1);
             Priority highPriority = priorityService.getPriorityById(2);
 
-            // 2. Προσθήκη Εργασιών
+            // 2. Add Tasks
             taskService.addTask("TT-Complete project", "Finalize project report", workCategory, highPriority, LocalDate.of(2024, 12, 15));
             taskService.addTask("TT-Prepare meeting", "Create agenda", workCategory, highPriority, LocalDate.of(2024, 12, 10));
 
@@ -44,7 +46,22 @@ public class TaskTester {
             System.out.println("Tasks after addition:");
             taskService.getTasks().forEach(System.out::println);
 
-            // 3. Ενημέρωση Εργασίας
+            // 3. Add Notifications to Task
+            Notification notification1 = new Notification(1, LocalDateTime.of(2024, 12, 14, 10, 0), "Reminder: Project due tomorrow!");
+            Notification notification2 = new Notification(2, LocalDateTime.of(2024, 12, 13, 10, 0), "Second reminder: Prepare for project");
+            taskService.addNotificationToTask(createdTaskIds.get(0), notification1);
+            taskService.addNotificationToTask(createdTaskIds.get(0), notification2);
+
+            System.out.println("\nNotifications for TT-Complete project:");
+            taskService.getTasks().get(0).getNotifications().forEach(System.out::println);
+
+            // 4. Delete Notification from Task
+            taskService.deleteNotificationFromTask(createdTaskIds.get(0), 1);
+
+            System.out.println("\nNotifications for TT-Complete project after deletion:");
+            taskService.getTasks().get(0).getNotifications().forEach(System.out::println);
+
+            // 5. Update Tasks
             taskService.updateTask(
                 createdTaskIds.get(0),
                 "TT-Complete final report",
@@ -58,7 +75,7 @@ public class TaskTester {
             System.out.println("\nTasks after update:");
             taskService.getTasks().forEach(System.out::println);
 
-            // 4. Διαγραφή Εργασίας
+            // 6. Delete Tasks
             taskService.deleteTask(createdTaskIds.get(1));
 
             System.out.println("\nTasks after deletion:");

@@ -1,11 +1,12 @@
 package media_2024;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class TaskService {
+public class TaskService implements Serializable {
     private List<Task> tasks = new ArrayList<>();
     private static final String TASKS_FILE = "Task.json";
     private int nextId = 1; // Keeps track of the next available ID
@@ -18,18 +19,28 @@ public class TaskService {
         tasks.forEach(Task::checkAndUpdateStatus);
     }
 
-    // Adds new Task
+    // Add new Task
     public void addTask(String title, String description, Category category, Priority priority, LocalDate dueDate) {
         tasks.add(new Task(nextId++, title, description, category, priority, dueDate));
         saveTasks();
     }
 
-    // Updates Task with the specified id 
+    // Add new Notification to Task
+    public void addNotificationToTask(int id, Notification notifications) {
+        Task task = tasks.stream()
+            .filter(t -> t.getId() == id)
+            .findFirst()
+            .orElseThrow(() -> new IllegalArgumentException("Task not found."));
+        task.setNotification(notifications);
+        saveTasks();
+    }
+
+    // Update Task with the specified id 
     public void updateTask(int id, String title, String description, Category category, Priority priority, LocalDate dueDate, String status) {
         Task task = tasks.stream()
-                .filter(t -> t.getId() == id)
-                .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("Task not found."));
+            .filter(t -> t.getId() == id)
+            .findFirst()
+            .orElseThrow(() -> new IllegalArgumentException("Task not found."));
         task.setTitle(title);
         task.setDescription(description);
         task.setCategory(category);
@@ -39,7 +50,7 @@ public class TaskService {
         saveTasks();
     }
 
-    // Updates Tasks with changed Priority
+    // Update Tasks with changed Priority
     public static void updateTasksWithChangedPriority(Priority updatedpriority) {
         List<Task> tasks = JSONHandler.readData("Task.json", Task.class);
     
@@ -53,7 +64,7 @@ public class TaskService {
     }
     
 
-    // Updates Tasks with changed Category
+    // Update Tasks with changed Category
     public static void updateTasksWithChangedCategory(Category updatedCategory) {
         List<Task> tasks = JSONHandler.readData("Task.json", Task.class);
     
@@ -80,6 +91,14 @@ public class TaskService {
         JSONHandler.writeData("Task.json", tasks);
     }
     
+    // Delete Notification from Task
+    public void deleteNotificationFromTask(int taskId, int notificationId) {
+        Task task = tasks.stream()
+            .filter(t -> t.getId() == taskId)
+            .findFirst()
+            .orElseThrow(() -> new IllegalArgumentException("Task not found."));
+        task.deleteNotification(notificationId);
+    }
 
     // Return List of Tasks
     public List<Task> getTasks() {
@@ -93,11 +112,23 @@ public class TaskService {
             .collect(Collectors.toList());
     }
 
+    // Return the Task with this Title
     public Task getTaskByTitle(String title) {
         return tasks.stream()
             .filter(t -> t.getTitle().equals(title))
             .findFirst()
             .orElseThrow(() -> new IllegalArgumentException("Task not found."));
+    }
+
+    // Search Tasks with title 
+    public List<Task> searchTasksByTitle(String title) {
+        if (title == null || title.isBlank()) {
+            throw new IllegalArgumentException("Title for search cannot be null or empty.");
+        }
+
+        return tasks.stream()
+            .filter(task -> task.getTitle().toLowerCase().contains(title.toLowerCase()))
+            .collect(Collectors.toList());
     }
 
     // Save Tasks

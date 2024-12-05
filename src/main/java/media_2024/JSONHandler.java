@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 
 public class JSONHandler implements Serializable {
@@ -20,6 +21,7 @@ public class JSONHandler implements Serializable {
         if (!dir.exists()) {
             dir.mkdir();
         }
+        objectMapper.registerModule(new JavaTimeModule());
     }
 
     // Read data from JSON file
