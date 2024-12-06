@@ -1,4 +1,4 @@
-module media_2024 {
+module TaskManager {
     requires javafx.controls;
     requires javafx.fxml;
 
@@ -8,6 +8,6 @@ module media_2024 {
     requires com.fasterxml.jackson.datatype.jsr310;
 
 
-    opens media_2024 to com.fasterxml.jackson.databind, javafx.fxml;
-    exports media_2024;
+    opens TaskManager to com.fasterxml.jackson.databind, javafx.fxml;
+    exports TaskManager;
 }
