@@ -1,0 +1,16 @@
+[ {
+  "id" : 1,
+  "name" : "Default"
+}, {
+  "id" : 2,
+  "name" : "High"
+}, {
+  "id" : 3,
+  "name" : "Medium"
+}, {
+  "id" : 4,
+  "name" : "Low"
+}, {
+  "id" : 5,
+  "name" : "test"
+} ]

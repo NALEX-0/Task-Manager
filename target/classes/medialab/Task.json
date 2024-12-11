@@ -1,0 +1,109 @@
+[ {
+  "id" : 1,
+  "title" : "Complete project",
+  "description" : "Finalize project report",
+  "category" : {
+    "id" : 1,
+    "name" : "Work"
+  },
+  "priority" : {
+    "id" : 2,
+    "name" : "High"
+  },
+  "notifications" : [ {
+    "id" : 1,
+    "reminderTime" : [ 2025, 1, 11, 15, 42 ],
+    "message" : null
+  } ],
+  "dueDate" : [ 2025, 4, 20 ],
+  "status" : "Open",
+  "notId" : 2
+}, {
+  "id" : 2,
+  "title" : "Code reviews",
+  "description" : "Do code reviews",
+  "category" : {
+    "id" : 1,
+    "name" : "Work"
+  },
+  "priority" : {
+    "id" : 3,
+    "name" : "Medium"
+  },
+  "notifications" : [ ],
+  "dueDate" : [ 2025, 6, 30 ],
+  "status" : "In Progress",
+  "notId" : 1
+}, {
+  "id" : 3,
+  "title" : "Haircut",
+  "description" : "Book a haircut appointment",
+  "category" : {
+    "id" : 2,
+    "name" : "Personal"
+  },
+  "priority" : {
+    "id" : 4,
+    "name" : "Low"
+  },
+  "notifications" : [ ],
+  "dueDate" : [ 2024, 12, 10 ],
+  "status" : "Completed",
+  "notId" : 1
+}, {
+  "id" : 4,
+  "title" : "Supermarket",
+  "description" : "Go to the supermarket",
+  "category" : {
+    "id" : 3,
+    "name" : "Family"
+  },
+  "priority" : {
+    "id" : 3,
+    "name" : "Medium"
+  },
+  "notifications" : [ ],
+  "dueDate" : [ 2024, 11, 1 ],
+  "status" : "Delayed",
+  "notId" : 1
+}, {
+  "id" : 5,
+  "title" : "Bank",
+  "description" : "Go to the bank",
+  "category" : {
+    "id" : 2,
+    "name" : "Personal"
+  },
+  "priority" : {
+    "id" : 3,
+    "name" : "Medium"
+  },
+  "notifications" : [ ],
+  "dueDate" : [ 2024, 12, 17 ],
+  "status" : "Open",
+  "notId" : 1
+}, {
+  "id" : 6,
+  "title" : "test",
+  "description" : "test",
+  "category" : {
+    "id" : 4,
+    "name" : "test"
+  },
+  "priority" : {
+    "id" : 5,
+    "name" : "test"
+  },
+  "notifications" : [ {
+    "id" : 2,
+    "reminderTime" : [ 2024, 12, 15, 15, 3 ],
+    "message" : null
+  }, {
+    "id" : 3,
+    "reminderTime" : [ 2024, 12, 25, 15, 42 ],
+    "message" : null
+  } ],
+  "dueDate" : [ 2025, 11, 24 ],
+  "status" : "Open",
+  "notId" : 4
+} ]

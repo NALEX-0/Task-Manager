@@ -1,3 +1,5 @@
+// Test Task and TaskService
+
 package TaskManager.Testers;
 
 import java.time.LocalDate;
@@ -7,7 +9,6 @@ import java.util.List;
 
 import TaskManager.Category;
 import TaskManager.CategoryService;
-import TaskManager.Notification;
 import TaskManager.Priority;
 import TaskManager.PriorityService;
 import TaskManager.Task;
@@ -15,7 +16,6 @@ import TaskManager.TaskService;
 
 public class TaskTester {
     public static void main(String[] args) {
-        // Test Tasks
         System.out.println("---Test Tasks---");
         TaskService taskService = new TaskService();
         CategoryService categoryService = new CategoryService();
@@ -38,7 +38,7 @@ public class TaskTester {
 
             // 2. Add Tasks
             taskService.addTask("TT-Complete project", "Finalize project report", workCategory, highPriority, LocalDate.of(2024, 12, 15));
-            taskService.addTask("TT-Prepare meeting", "Create agenda", workCategory, highPriority, LocalDate.of(2024, 12, 10));
+            taskService.addTask("TT-Prepare meeting", "Create agenda", workCategory, highPriority, LocalDate.of(2024, 12, 10), "Delayed");
 
             createdTaskIds.add(taskService.getTaskByTitle("TT-Complete project").getId());
             createdTaskIds.add(taskService.getTaskByTitle("TT-Prepare meeting").getId());
@@ -47,10 +47,12 @@ public class TaskTester {
             taskService.getTasks().forEach(System.out::println);
 
             // 3. Add Notifications to Task
-            Notification notification1 = new Notification(1, LocalDateTime.of(2024, 12, 14, 10, 0), "Reminder: Project due tomorrow!");
-            Notification notification2 = new Notification(2, LocalDateTime.of(2024, 12, 13, 10, 0), "Second reminder: Prepare for project");
-            taskService.addNotificationToTask(createdTaskIds.get(0), notification1);
-            taskService.addNotificationToTask(createdTaskIds.get(0), notification2);
+            // Notification notification1 = new Notification(1, LocalDateTime.of(2024, 12, 14, 10, 0), "Reminder: Project due tomorrow!");
+            // Notification notification2 = new Notification(2, LocalDateTime.of(2024, 12, 13, 10, 0), "Second reminder: Prepare for project");
+            // taskService.addNotificationToTask(createdTaskIds.get(0), notification1);
+            // taskService.addNotificationToTask(createdTaskIds.get(0), notification2);
+            taskService.addNotificationToTask(createdTaskIds.get(0), LocalDateTime.of(2024, 12, 14, 10, 0));
+            taskService.addNotificationToTask(createdTaskIds.get(0), LocalDateTime.of(2024, 10, 11, 15, 42));
 
             System.out.println("\nNotifications for TT-Complete project:");
             taskService.getTasks().get(0).getNotifications().forEach(System.out::println);
@@ -83,7 +85,8 @@ public class TaskTester {
 
         } catch (Exception e) {
             System.err.println("Error during testing tasks: " + e.getMessage());
-        } finally {
+        } 
+        finally {
             // Delete testing data
             for (int id : createdCategoryIds) {
                 try {

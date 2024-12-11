@@ -1,3 +1,5 @@
+// Test Priority and priorityService
+
 package TaskManager.Testers;
 
 import java.util.ArrayList;
@@ -7,7 +9,6 @@ import TaskManager.PriorityService;
 
 public class PriorityTester {
     public static void main(String[] args) {
-        // Test Priority
         PriorityService priorityService = new PriorityService();
         List<Integer> createdPriorityIds = new ArrayList<>();
         System.out.println("---Test Priorities---");

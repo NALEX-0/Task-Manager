@@ -48,6 +48,13 @@
             <version>2.15.2</version>
         </dependency>
 
+        <!-- BootstrapFX --> 
+        <dependency>
+            <groupId>org.kordamp.bootstrapfx</groupId>
+            <artifactId>bootstrapfx-core</artifactId>
+            <version>0.4.0</version>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
@@ -69,7 +76,7 @@
                         <!-- Usage: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>task_manager.App</mainClass> 
+                            <mainClass>Main.App</mainClass> 
                         </configuration>
                     </execution>
                 </executions>

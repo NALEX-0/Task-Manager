@@ -1,3 +1,5 @@
+// Test Category and categoryService
+
 package TaskManager.Testers;
 
 import java.util.ArrayList;
@@ -7,7 +9,6 @@ import TaskManager.CategoryService;
 
 public class CategoryTester {
     public static void main(String[] args) {
-        // Test Categories
         CategoryService categoryService = new CategoryService();
         List<Integer> createdCategoryIds = new ArrayList<>();
         System.out.println("---Test Categories---");

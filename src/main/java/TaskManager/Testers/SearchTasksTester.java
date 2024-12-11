@@ -1,3 +1,5 @@
+// Test use case: Search Task/s
+
 package TaskManager.Testers;
 
 import java.time.LocalDate;
@@ -12,7 +14,6 @@ import TaskManager.TaskService;
 
 public class SearchTasksTester {
     public static void main(String[] args) {
-        // Test Task Search
         System.out.println("---Test Task Search---");
         TaskService taskService = new TaskService();
         CategoryService categoryService = new CategoryService();

@@ -2,17 +2,28 @@ package TaskManager;
 
 import java.io.Serializable;
 
+
+/**
+ * Represents a category with an ID and a name.
+ */
 public class Category implements Serializable {
     private int id;
     private String name;
 
-    // Constructor
+    /**
+     * Constructs a new category
+     * 
+     * @param id the unique ID of the category
+     * @param name the name of the category
+     */
     public Category(int id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    // Default constructor required for Jackson
+    /**
+     * Default constructor required for Jackson.
+     */
     public Category() {}
 
     // Getters and Setters
@@ -29,6 +40,11 @@ public class Category implements Serializable {
         this.name = name;
     }
 
+    /**
+     * Returns a string representation of the category.
+     * 
+     * @return a string representation of the category
+     */
     @Override
     public String toString() {
         return "Category{id=" + id + ", name='" + name + "'}";
