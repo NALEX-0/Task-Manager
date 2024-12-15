@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"com.example.taskmanager","c":"MainCli","l":"main(String[])","u":"main(java.lang.String[])"},{"p":"com.example.taskmanager","c":"MainCli","l":"MainCli()","u":"%3Cinit%3E()"}];updateSearchResults();

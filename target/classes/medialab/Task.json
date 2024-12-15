@@ -14,10 +14,18 @@
     "id" : 1,
     "reminderTime" : [ 2025, 1, 11, 15, 42 ],
     "message" : null
+  }, {
+    "id" : 2,
+    "reminderTime" : [ 2025, 1, 11, 15, 42 ],
+    "message" : null
+  }, {
+    "id" : 3,
+    "reminderTime" : [ 2025, 1, 11, 15, 42 ],
+    "message" : null
   } ],
   "dueDate" : [ 2025, 4, 20 ],
   "status" : "Open",
-  "notId" : 2
+  "notId" : 3
 }, {
   "id" : 2,
   "title" : "Code reviews",
@@ -33,7 +41,7 @@
   "notifications" : [ ],
   "dueDate" : [ 2025, 6, 30 ],
   "status" : "In Progress",
-  "notId" : 1
+  "notId" : 0
 }, {
   "id" : 3,
   "title" : "Haircut",
@@ -49,7 +57,7 @@
   "notifications" : [ ],
   "dueDate" : [ 2024, 12, 10 ],
   "status" : "Completed",
-  "notId" : 1
+  "notId" : 0
 }, {
   "id" : 4,
   "title" : "Supermarket",
@@ -65,7 +73,7 @@
   "notifications" : [ ],
   "dueDate" : [ 2024, 11, 1 ],
   "status" : "Delayed",
-  "notId" : 1
+  "notId" : 0
 }, {
   "id" : 5,
   "title" : "Bank",
@@ -79,31 +87,167 @@
     "name" : "Medium"
   },
   "notifications" : [ ],
-  "dueDate" : [ 2024, 12, 17 ],
+  "dueDate" : [ 2024, 12, 18 ],
   "status" : "Open",
-  "notId" : 1
+  "notId" : 0
 }, {
   "id" : 6,
-  "title" : "test",
-  "description" : "test",
+  "title" : "Complete project",
+  "description" : "Finalize project report",
   "category" : {
-    "id" : 4,
-    "name" : "test"
+    "id" : 1,
+    "name" : "Work"
   },
   "priority" : {
-    "id" : 5,
-    "name" : "test"
-  },
-  "notifications" : [ {
     "id" : 2,
-    "reminderTime" : [ 2024, 12, 15, 15, 3 ],
-    "message" : null
-  }, {
-    "id" : 3,
-    "reminderTime" : [ 2024, 12, 25, 15, 42 ],
-    "message" : null
-  } ],
-  "dueDate" : [ 2025, 11, 24 ],
+    "name" : "High"
+  },
+  "notifications" : [ ],
+  "dueDate" : [ 2025, 4, 20 ],
   "status" : "Open",
-  "notId" : 4
+  "notId" : 0
+}, {
+  "id" : 7,
+  "title" : "Code reviews",
+  "description" : "Do code reviews",
+  "category" : {
+    "id" : 1,
+    "name" : "Work"
+  },
+  "priority" : {
+    "id" : 3,
+    "name" : "Medium"
+  },
+  "notifications" : [ ],
+  "dueDate" : [ 2025, 6, 30 ],
+  "status" : "In Progress",
+  "notId" : 0
+}, {
+  "id" : 8,
+  "title" : "Haircut",
+  "description" : "Book a haircut appointment",
+  "category" : {
+    "id" : 2,
+    "name" : "Personal"
+  },
+  "priority" : {
+    "id" : 4,
+    "name" : "Low"
+  },
+  "notifications" : [ ],
+  "dueDate" : [ 2024, 12, 10 ],
+  "status" : "Completed",
+  "notId" : 0
+}, {
+  "id" : 9,
+  "title" : "Supermarket",
+  "description" : "Go to the supermarket",
+  "category" : {
+    "id" : 3,
+    "name" : "Family"
+  },
+  "priority" : {
+    "id" : 3,
+    "name" : "Medium"
+  },
+  "notifications" : [ ],
+  "dueDate" : [ 2024, 11, 1 ],
+  "status" : "Delayed",
+  "notId" : 0
+}, {
+  "id" : 10,
+  "title" : "Bank",
+  "description" : "Go to the bank",
+  "category" : {
+    "id" : 2,
+    "name" : "Personal"
+  },
+  "priority" : {
+    "id" : 3,
+    "name" : "Medium"
+  },
+  "notifications" : [ ],
+  "dueDate" : [ 2024, 12, 18 ],
+  "status" : "Open",
+  "notId" : 0
+}, {
+  "id" : 11,
+  "title" : "Complete project",
+  "description" : "Finalize project report",
+  "category" : {
+    "id" : 1,
+    "name" : "Work"
+  },
+  "priority" : {
+    "id" : 2,
+    "name" : "High"
+  },
+  "notifications" : [ ],
+  "dueDate" : [ 2025, 4, 20 ],
+  "status" : "Open",
+  "notId" : 0
+}, {
+  "id" : 12,
+  "title" : "Code reviews",
+  "description" : "Do code reviews",
+  "category" : {
+    "id" : 1,
+    "name" : "Work"
+  },
+  "priority" : {
+    "id" : 3,
+    "name" : "Medium"
+  },
+  "notifications" : [ ],
+  "dueDate" : [ 2025, 6, 30 ],
+  "status" : "In Progress",
+  "notId" : 0
+}, {
+  "id" : 13,
+  "title" : "Haircut",
+  "description" : "Book a haircut appointment",
+  "category" : {
+    "id" : 2,
+    "name" : "Personal"
+  },
+  "priority" : {
+    "id" : 4,
+    "name" : "Low"
+  },
+  "notifications" : [ ],
+  "dueDate" : [ 2024, 12, 10 ],
+  "status" : "Completed",
+  "notId" : 0
+}, {
+  "id" : 14,
+  "title" : "Supermarket",
+  "description" : "Go to the supermarket",
+  "category" : {
+    "id" : 3,
+    "name" : "Family"
+  },
+  "priority" : {
+    "id" : 3,
+    "name" : "Medium"
+  },
+  "notifications" : [ ],
+  "dueDate" : [ 2024, 11, 1 ],
+  "status" : "Open",
+  "notId" : 0
+}, {
+  "id" : 15,
+  "title" : "Bank",
+  "description" : "Go to the bank",
+  "category" : {
+    "id" : 2,
+    "name" : "Personal"
+  },
+  "priority" : {
+    "id" : 3,
+    "name" : "Medium"
+  },
+  "notifications" : [ ],
+  "dueDate" : [ 2024, 12, 18 ],
+  "status" : "Open",
+  "notId" : 0
 } ]

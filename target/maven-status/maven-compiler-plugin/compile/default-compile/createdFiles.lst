@@ -1,0 +1,16 @@
+com\example\taskmanager\App.class
+com\example\taskmanager\Testers\SearchTasksTester.class
+com\example\taskmanager\Testers\TaskTester.class
+com\example\taskmanager\Category.class
+com\example\taskmanager\Task.class
+com\example\taskmanager\CategoryService.class
+com\example\taskmanager\Testers\CategoryTester.class
+com\example\taskmanager\Testers\PriorityTester.class
+com\example\taskmanager\PriorityService.class
+com\example\taskmanager\MainCli.class
+com\example\taskmanager\Priority.class
+com\example\taskmanager\TaskService.class
+com\example\taskmanager\JSONHandler.class
+com\example\taskmanager\Testers\AddData.class
+com\example\taskmanager\Notification.class
+com\example\taskmanager\Testers\DeleteData.class

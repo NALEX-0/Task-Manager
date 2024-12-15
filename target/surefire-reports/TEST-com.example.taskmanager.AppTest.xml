@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.taskmanager.AppTest" time="0.029" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\dev\code\Java\multimedia_project\TaskManager\target\test-classes;C:\dev\code\Java\multimedia_project\TaskManager\target\classes;C:\Users\nikos\.m2\repository\junit\junit\3.8.1\junit-3.8.1.jar;C:\Users\nikos\.m2\repository\org\openjfx\javafx-controls\13\javafx-controls-13.jar;C:\Users\nikos\.m2\repository\org\openjfx\javafx-controls\13\javafx-controls-13-win.jar;C:\Users\nikos\.m2\repository\org\openjfx\javafx-graphics\13\javafx-graphics-13.jar;C:\Users\nikos\.m2\repository\org\openjfx\javafx-graphics\13\javafx-graphics-13-win.jar;C:\Users\nikos\.m2\repository\org\openjfx\javafx-base\13\javafx-base-13.jar;C:\Users\nikos\.m2\repository\org\openjfx\javafx-base\13\javafx-base-13-win.jar;C:\Users\nikos\.m2\repository\org\openjfx\javafx-fxml\13\javafx-fxml-13.jar;C:\Users\nikos\.m2\repository\org\openjfx\javafx-fxml\13\javafx-fxml-13-win.jar;C:\Users\nikos\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.15.2\jackson-databind-2.15.2.jar;C:\Users\nikos\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.15.2\jackson-core-2.15.2.jar;C:\Users\nikos\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.2\jackson-annotations-2.15.2.jar;C:\Users\nikos\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.15.2\jackson-datatype-jsr310-2.15.2.jar;C:\Users\nikos\.m2\repository\org\kordamp\bootstrapfx\bootstrapfx-core\0.4.0\bootstrapfx-core-0.4.0.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/Athens"/>
+    <property name="user.country.format" value="GR"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\dev\lang\Java\jdk-21.0.2\bin"/>
+    <property name="sun.java.command" value="C:\Users\nikos\AppData\Local\Temp\surefire4973372669448194303\surefirebooter-20241212201447310_3.jar C:\Users\nikos\AppData\Local\Temp\surefire4973372669448194303 2024-12-12T20-14-46_737-jvmRun1 surefire-20241212201447310_1tmp surefire_0-20241212201447310_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\dev\code\Java\multimedia_project\TaskManager\target\test-classes;C:\dev\code\Java\multimedia_project\TaskManager\target\classes;C:\Users\nikos\.m2\repository\junit\junit\3.8.1\junit-3.8.1.jar;C:\Users\nikos\.m2\repository\org\openjfx\javafx-controls\13\javafx-controls-13.jar;C:\Users\nikos\.m2\repository\org\openjfx\javafx-controls\13\javafx-controls-13-win.jar;C:\Users\nikos\.m2\repository\org\openjfx\javafx-graphics\13\javafx-graphics-13.jar;C:\Users\nikos\.m2\repository\org\openjfx\javafx-graphics\13\javafx-graphics-13-win.jar;C:\Users\nikos\.m2\repository\org\openjfx\javafx-base\13\javafx-base-13.jar;C:\Users\nikos\.m2\repository\org\openjfx\javafx-base\13\javafx-base-13-win.jar;C:\Users\nikos\.m2\repository\org\openjfx\javafx-fxml\13\javafx-fxml-13.jar;C:\Users\nikos\.m2\repository\org\openjfx\javafx-fxml\13\javafx-fxml-13-win.jar;C:\Users\nikos\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.15.2\jackson-databind-2.15.2.jar;C:\Users\nikos\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.15.2\jackson-core-2.15.2.jar;C:\Users\nikos\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.2\jackson-annotations-2.15.2.jar;C:\Users\nikos\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.15.2\jackson-datatype-jsr310-2.15.2.jar;C:\Users\nikos\.m2\repository\org\kordamp\bootstrapfx\bootstrapfx-core\0.4.0\bootstrapfx-core-0.4.0.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\nikos"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2024-01-16"/>
+    <property name="java.home" value="C:\dev\lang\Java\jdk-21.0.2"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\dev\code\Java\multimedia_project\TaskManager"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\nikos\AppData\Local\Temp\surefire4973372669448194303\surefirebooter-20241212201447310_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.2+13-LTS-58"/>
+    <property name="user.name" value="nikos"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\nikos\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\nikos\AppData\Local\Temp\"/>
+    <property name="java.version" value="21.0.2"/>
+    <property name="user.dir" value="C:\dev\code\Java\multimedia_project\TaskManager"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.language.format" value="el"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\dev\lang\Java\jdk-21.0.2\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\dev\lang\Java\jdk-21.0.2\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Python311\Scripts\;C:\Python311\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\dev\lang\Prolog\swipl\bin;C:\dev\lang\SML\bin\;C:\dev\lang\NodeJS\;C:\ProgramData\chocolatey\bin;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\dotnet\;C:\dev\tools\XAMPP\php;C:\dev\tools\Composer;C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Calibre2\;C:\Program Files\OpenVPN\bin;C:\Program Files\PuTTY\;C:\Program Files (x86)\AOMEI\AOMEI Backupper\7.3.3;C:\dev\tools\Git\cmd;C:\Program Files\Microchip\xc8\v2.50\bin;C:\Program Files\Microchip\xc16\v2.10\bin;C:\Program Files\Microchip\xc32\v4.45\bin;C:\Program Files\Microchip\xc-dsc\v3.10\bin;C:\Program Files (x86)\Microchip\xc8\v2.10\bin;C:\dev\tools\apache-maven-3.9.9\bin;C:\Users\nikos\.cargo\bin;C:\Users\nikos\AppData\Local\Microsoft\WindowsApps;C:\dev\tools\Microsoft VS Code\bin;C:\dev\lang\Flutter\bin;C:\dev\lang\C++\MinGW\bin;C:\Users\nikos\AppData\Roaming\npm;C:\Users\nikos\.dotnet\tools;C:\Users\nikos\AppData\Roaming\Composer\vendor\bin;C:\Python311\Scripts;C:\Users\nikos\AppData\Local\Pub\Cache\bin;C:\Program Files\Microchip\xc8\v2.50\bin;C:\Program Files\Microchip\xc16\v2.10\bin;C:\Program Files\Microchip\xc32\v4.45\bin;C:\Program Files\Microchip\xc-dsc\v3.10\bin;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="21.0.2+13-LTS-58"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="testApp" classname="com.example.taskmanager.AppTest" time="0.004"/>
+</testsuite>
