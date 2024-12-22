@@ -22,7 +22,8 @@ public class TaskService implements Serializable {
     
     /**
      * Constructs a new TaskService and loads tasks from storage.
-     * Initializes the next task ID and updates the status of delayed tasks.
+     * Initializes the next task ID, because 'nextId' is 0 when Tasks are loaded from JSON,
+     * and updates the status of delayed tasks.
      */
     public TaskService() {
         tasks = JSONHandler.readData(TASKS_FILE, Task.class);
@@ -76,9 +77,9 @@ public class TaskService implements Serializable {
      */
     public void addNotificationToTask(int taskId, LocalDateTime reminderTime, String message) {
         Task task = getTaskByid(taskId);
-        int notId = task.getNotId() + 1; // ToDo: Problem if ids->1, 2 and delete 1
+        int notId = task.getNextNotId() + 1;
         Notification not = new Notification(notId, reminderTime, message);
-        task.setNotId(notId);
+        task.setNextNotId(notId);
         task.setNotification(not);
         saveTasks();
     }
@@ -92,9 +93,9 @@ public class TaskService implements Serializable {
      */
     public void addNotificationToTask(int taskId, LocalDateTime reminderTime) {
         Task task = getTaskByid(taskId);
-        int notId = task.getNotId() + 1; // ToDo: Problem if ids->1, 2 and delete 1
+        int notId = task.getNextNotId() + 1; 
         Notification not = new Notification(notId, reminderTime);
-        task.setNotId(notId);
+        task.setNextNotId(notId);
         task.setNotification(not);
         saveTasks();
     }
@@ -188,10 +189,8 @@ public class TaskService implements Serializable {
      * @param notificationId the ID of the notification to delete
      */
     public void deleteNotificationFromTask(int taskId, int notificationId) {
-        Task task = getTaskByid(taskId); // ToDo: Problem if ids->1, 2 and delete 1
+        Task task = getTaskByid(taskId);
         task.deleteNotification(notificationId);
-        // task.decNotId();
-        task.setNotId(task.getNotId() - 1);
         saveTasks();
     }
 

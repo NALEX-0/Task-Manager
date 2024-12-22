@@ -20,6 +20,7 @@ public class PriorityService implements Serializable {
     /**
      * Constructs a new PriorityService instance and loads priorities from the JSON storage.
      * Ensures the default priority exists and initializes the next available ID.
+     * Because 'nextId' is 2 when Priorities are loaded from JSON.
      */
     public PriorityService() {
         priorities = JSONHandler.readData(PRIORITIES_FILE, Priority.class);

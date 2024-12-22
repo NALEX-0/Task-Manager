@@ -22,7 +22,7 @@ public class Task implements Serializable {
     private LocalDate dueDate;                  // Deadline (e.g., 2024-12-10)
     private String status;                      // Status (e.g., Open, In Progress, etc.)
 
-    private int notId;                          // Notification identifier
+    private int nextNotId;                          // Notification next identifier
 
     // Status constants
     public static final String STATUS_OPEN = "Open";
@@ -50,7 +50,7 @@ public class Task implements Serializable {
         this.notifications = new ArrayList<>();
         this.dueDate = dueDate;
         this.status = STATUS_OPEN;
-        this.notId = 0;
+        this.nextNotId = 0;
     }
 
     /**
@@ -73,7 +73,7 @@ public class Task implements Serializable {
         this.priority = priority;
         this.notifications = new ArrayList<>();
         this.dueDate = dueDate;
-        this.notId = 0;
+        this.nextNotId = 0;
         if (status.equals("Open") || status.equals("In Progress") || status.equals("Postponed") || status.equals("Completed") || status.equals("Delayed")) {
             this.status = status;
         }
@@ -130,11 +130,11 @@ public class Task implements Serializable {
     public void setStatus(String status) {
         this.status = status;
     }
-    public int getNotId() {
-        return this.notId;
+    public int getNextNotId() {
+        return this.nextNotId;
     }
-    public void setNotId(int notId) {
-        this.notId = notId;
+    public void setNextNotId(int notId) {
+        this.nextNotId = notId;
     }
 
     /**
@@ -194,7 +194,7 @@ public class Task implements Serializable {
     @Override
     public String toString() {
         return "Task{" + "id=" + id + ", title='" + title + '\'' + ", description='" + description + '\'' + ", category='" + category.getName() + '\'' 
-        + ", priority='" + priority.getName() + '\'' + ", notifications:" + notifications + ", dueDate=" + dueDate + ", status='" + status + '\'' + ", notId=" + notId + '}';
+        + ", priority='" + priority.getName() + '\'' + ", notifications:" + notifications + ", dueDate=" + dueDate + ", status='" + status + '\'' + ", nextNotId=" + nextNotId + '}';
     }
 }
 

@@ -18,6 +18,7 @@ public class CategoryService implements Serializable {
     /**
      * Constructs a new CategoryService instance and loads categories from the JSON storage.
      * Initializes the next ID based on the highest existing category ID.
+     * Because 'nextId' is 1 when Categories are loaded from JSON. 
      */
     public CategoryService() {
         categories = JSONHandler.readData(CATEGORIES_FILE, Category.class);

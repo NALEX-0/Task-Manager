@@ -41,10 +41,6 @@ public class TaskTester {
             taskService.getTasks().forEach(System.out::println);
 
             // 3. Add Notifications to Task
-            // Notification notification1 = new Notification(1, LocalDateTime.of(2024, 12, 14, 10, 0), "Reminder: Project due tomorrow!");
-            // Notification notification2 = new Notification(2, LocalDateTime.of(2024, 12, 13, 10, 0), "Second reminder: Prepare for project");
-            // taskService.addNotificationToTask(createdTaskIds.get(0), notification1);
-            // taskService.addNotificationToTask(createdTaskIds.get(0), notification2);
             taskService.addNotificationToTask(createdTaskIds.get(0), LocalDateTime.of(2025, 3, 14, 10, 0));
             taskService.addNotificationToTask(createdTaskIds.get(0), LocalDateTime.of(2025, 3, 11, 15, 42));
 
