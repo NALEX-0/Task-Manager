@@ -348,6 +348,13 @@ public class MainApp extends Application {
         // Add columns to the TableView
         priorityTableView.getColumns().addAll(nameColumn, actionsColumn);
 
+        // Resize columns
+        priorityTableView.setColumnResizePolicy(TableView.UNCONSTRAINED_RESIZE_POLICY);
+        priorityTableView.getColumns().forEach(column -> {
+            column.setPrefWidth(130); 
+            column.setResizable(true);
+        });
+
         // Placeholder for empty TableView
         Label placeholder = new Label("No categories available");
         placeholder.setStyle("-fx-font-size: 14px; -fx-text-fill: gray;");
@@ -399,6 +406,13 @@ public class MainApp extends Application {
 
         // Add columns to the TableView
         categoryTableView.getColumns().addAll(nameColumn, actionsColumn);
+
+        // Resize columns
+        categoryTableView.setColumnResizePolicy(TableView.UNCONSTRAINED_RESIZE_POLICY);
+        categoryTableView.getColumns().forEach(column -> {
+            column.setPrefWidth(130); 
+            column.setResizable(true);
+        });
 
         // Placeholder for empty TableView
         Label placeholder = new Label("No categories available");

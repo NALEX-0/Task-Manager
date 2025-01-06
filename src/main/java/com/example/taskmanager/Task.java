@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 /**
  * Represents a task.
@@ -182,8 +184,9 @@ public class Task implements Serializable {
      * 
      * @return the last notification
      */
+    @JsonIgnore
     public Notification getLastNotification() {
-        return this.notifications.get(this.notifications.size() - 1);
+        return notifications.get(notifications.size() - 1);
     }
 
     /**

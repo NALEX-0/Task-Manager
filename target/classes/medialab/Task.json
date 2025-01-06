@@ -17,12 +17,7 @@
   } ],
   "dueDate" : [ 2025, 4, 20 ],
   "status" : "Open",
-  "nextNotId" : 1,
-  "lastNotification" : {
-    "id" : 1,
-    "reminderDate" : [ 2025, 1, 11 ],
-    "message" : null
-  }
+  "nextNotId" : 1
 }, {
   "id" : 2,
   "title" : "Code reviews",
@@ -42,12 +37,7 @@
   } ],
   "dueDate" : [ 2025, 6, 30 ],
   "status" : "In Progress",
-  "nextNotId" : 4,
-  "lastNotification" : {
-    "id" : 1,
-    "reminderDate" : [ 2025, 1, 13 ],
-    "message" : "Take the laptop with me"
-  }
+  "nextNotId" : 1
 }, {
   "id" : 3,
   "title" : "Haircut",
@@ -64,3 +54,36 @@
   "dueDate" : [ 2024, 12, 10 ],
   "status" : "Completed",
   "nextNotId" : 0
+}, {
+  "id" : 4,
+  "title" : "Supermarket",
+  "description" : "Go to the supermarket",
+  "category" : {
+    "id" : 3,
+    "name" : "Family"
+  },
+  "priority" : {
+    "id" : 3,
+    "name" : "Medium"
+  },
+  "notifications" : [ ],
+  "dueDate" : [ 2024, 11, 1 ],
+  "status" : "Open",
+  "nextNotId" : 0
+}, {
+  "id" : 5,
+  "title" : "Bank",
+  "description" : "Go to the bank",
+  "category" : {
+    "id" : 2,
+    "name" : "Personal"
+  },
+  "priority" : {
+    "id" : 3,
+    "name" : "Medium"
+  },
+  "notifications" : [ ],
+  "dueDate" : [ 2025, 1, 12 ],
+  "status" : "Open",
+  "nextNotId" : 0
+} ]
