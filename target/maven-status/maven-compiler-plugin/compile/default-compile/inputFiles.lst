@@ -1,16 +1,10 @@
-C:\dev\code\Java\multimedia_project\TaskManager\src\main\java\com\example\taskmanager\App.java
 C:\dev\code\Java\multimedia_project\TaskManager\src\main\java\com\example\taskmanager\Category.java
 C:\dev\code\Java\multimedia_project\TaskManager\src\main\java\com\example\taskmanager\CategoryService.java
 C:\dev\code\Java\multimedia_project\TaskManager\src\main\java\com\example\taskmanager\JSONHandler.java
+C:\dev\code\Java\multimedia_project\TaskManager\src\main\java\com\example\taskmanager\MainApp.java
 C:\dev\code\Java\multimedia_project\TaskManager\src\main\java\com\example\taskmanager\MainCli.java
 C:\dev\code\Java\multimedia_project\TaskManager\src\main\java\com\example\taskmanager\Notification.java
 C:\dev\code\Java\multimedia_project\TaskManager\src\main\java\com\example\taskmanager\Priority.java
 C:\dev\code\Java\multimedia_project\TaskManager\src\main\java\com\example\taskmanager\PriorityService.java
 C:\dev\code\Java\multimedia_project\TaskManager\src\main\java\com\example\taskmanager\Task.java
 C:\dev\code\Java\multimedia_project\TaskManager\src\main\java\com\example\taskmanager\TaskService.java
-C:\dev\code\Java\multimedia_project\TaskManager\src\main\java\com\example\taskmanager\Testers\AddData.java
-C:\dev\code\Java\multimedia_project\TaskManager\src\main\java\com\example\taskmanager\Testers\CategoryTester.java
-C:\dev\code\Java\multimedia_project\TaskManager\src\main\java\com\example\taskmanager\Testers\DeleteData.java
-C:\dev\code\Java\multimedia_project\TaskManager\src\main\java\com\example\taskmanager\Testers\PriorityTester.java
-C:\dev\code\Java\multimedia_project\TaskManager\src\main\java\com\example\taskmanager\Testers\SearchTasksTester.java
-C:\dev\code\Java\multimedia_project\TaskManager\src\main\java\com\example\taskmanager\Testers\TaskTester.java

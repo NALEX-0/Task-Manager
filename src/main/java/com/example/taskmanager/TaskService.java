@@ -2,7 +2,6 @@ package com.example.taskmanager;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -75,7 +74,7 @@ public class TaskService implements Serializable {
      * @param message           the message of the notification
      * @throws IllegalArgumentException if the task is not found
      */
-    public void addNotificationToTask(int taskId, LocalDateTime reminderTime, String message) {
+    public void addNotificationToTask(int taskId, LocalDate reminderTime, String message) {
         Task task = getTaskByid(taskId);
         int notId = task.getNextNotId() + 1;
         Notification not = new Notification(notId, reminderTime, message);
@@ -91,7 +90,7 @@ public class TaskService implements Serializable {
      * @param reminderTime      the reminder time of the notification
      * @throws IllegalArgumentException if the task is not found
      */
-    public void addNotificationToTask(int taskId, LocalDateTime reminderTime) {
+    public void addNotificationToTask(int taskId, LocalDate reminderTime) {
         Task task = getTaskByid(taskId);
         int notId = task.getNextNotId() + 1; 
         Notification not = new Notification(notId, reminderTime);
@@ -259,19 +258,37 @@ public class TaskService implements Serializable {
     }
 
     /**
-     * Searches for tasks with titles containing the specified string.
+     * Gets the last added task
+     * <p>Used in MainApp (GUI)</p>
+     * 
+     * @return the last task
+     */
+    public Task getLastTask() {
+        return getTaskByid(nextId - 1);
+    }
+
+    /**
+     * Searches for tasks containing the specified string.
+     * <p>Searches on Title, Description, Category, Priority and DueDate</p>
      * 
      * @param title the string to search for in task titles
      * @return a list of tasks with titles containing the string
      * @throws IllegalArgumentException if the search string is null or empty
      */
-    public List<Task> searchTasksByTitle(String title) {
-        if (title == null || title.isBlank()) {
-            throw new IllegalArgumentException("Title for search cannot be null or empty.");
+    public List<Task> searchTasks(String query) {
+        if (query == null || query.isBlank()) {
+            throw new IllegalArgumentException("Search query cannot be null or empty.");
         }
-
+    
+        String lowerCaseQuery = query.toLowerCase();
+    
         return tasks.stream()
-            .filter(task -> task.getTitle().toLowerCase().contains(title.toLowerCase()))
+            .filter(task -> 
+                task.getTitle().toLowerCase().contains(lowerCaseQuery) ||
+                task.getDescription().toLowerCase().contains(lowerCaseQuery) ||
+                task.getCategory().getName().toLowerCase().contains(lowerCaseQuery) ||
+                task.getPriority().getName().toLowerCase().contains(lowerCaseQuery) ||
+                task.getDueDate().toString().contains(lowerCaseQuery))
             .collect(Collectors.toList());
     }
 

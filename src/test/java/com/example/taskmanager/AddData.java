@@ -1,7 +1,6 @@
 package com.example.taskmanager;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 /**
  * Adds data to Category, Priority and Task
@@ -66,8 +65,8 @@ public class AddData {
             taskService.addTask("Supermarket", "Go to the supermarket", Family, Medium, LocalDate.of(2024, 11, 1), "Open"); // Should be updated to Delayed automatically
             taskService.addTask("Bank", "Go to the bank", Personal, Medium, LocalDate.now().plusDays(6), "Open"); // Due in the next 6 days
 
-            taskService.addNotificationToTask(taskService.getTaskByTitle("Complete project").getId(), LocalDateTime.of(2025, 1, 11, 15, 42));
-            // taskService.addNotificationToTask(taskService.getTaskByTitle("Bank").getId(), LocalDateTime.of(2025, 10, 11, 15, 42), "Take the folders with me");
+            taskService.addNotificationToTask(taskService.getTaskByTitle("Complete project").getId(), LocalDate.of(2025, 1, 11));
+            taskService.addNotificationToTask(taskService.getTaskByTitle("Code reviews").getId(), LocalDate.of(2025, 1, 13), "Take the laptop with me");
 
             System.out.println("\nCreated Tasks:");
             taskService.getTasks().forEach(System.out::println);

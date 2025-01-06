@@ -1,7 +1,6 @@
 package com.example.taskmanager;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,8 +40,8 @@ public class TaskTester {
             taskService.getTasks().forEach(System.out::println);
 
             // 3. Add Notifications to Task
-            taskService.addNotificationToTask(createdTaskIds.get(0), LocalDateTime.of(2025, 3, 14, 10, 0));
-            taskService.addNotificationToTask(createdTaskIds.get(0), LocalDateTime.of(2025, 3, 11, 15, 42));
+            taskService.addNotificationToTask(createdTaskIds.get(0), LocalDate.of(2025, 3, 14));
+            taskService.addNotificationToTask(createdTaskIds.get(0), LocalDate.of(2025, 3, 11));
 
             System.out.println("\nNotifications for TT-Complete project:");
             taskService.getTasks().get(0).getNotifications().forEach(System.out::println);

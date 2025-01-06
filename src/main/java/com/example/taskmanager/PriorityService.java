@@ -55,12 +55,17 @@ public class PriorityService implements Serializable {
      * 
      * @param id      the ID of the priority to update
      * @param newName the new name for the priority
-     * @throws IllegalArgumentException if the priority is the default priority or does not exist
+     * @throws IllegalArgumentException if the priority is the default priority,
+     *                                  if the priority does not exist, or if a priority
+     *                                  with the new name already exists
      */
     public void updatePriority(int id, String newName) {
         Priority priority = getPriorityById(id);
         if (priority.equals(DEFAULT_PRIORITY)) {
             throw new IllegalArgumentException("Cannot modify the default priority.");
+        }
+        if (priorities.stream().anyMatch(p -> p.getName().equals(newName))) {
+            throw new IllegalArgumentException("Priority already exists.");
         }
         priority.setName(newName);
         savePriorities();
@@ -124,6 +129,16 @@ public class PriorityService implements Serializable {
             .filter(priority -> priority.getName().equals(name))
             .findFirst()
             .orElseThrow(() -> new IllegalArgumentException("Priority not found."));
+    }
+
+    /**
+     * Gets the last added priority
+     * <p>Used in MainApp (GUI)</p>
+     * 
+     * @return the last priority
+     */
+    public Priority getLastPriority() {
+        return getPriorityById(nextId - 1);
     }
     
     /**

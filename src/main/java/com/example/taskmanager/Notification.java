@@ -1,7 +1,7 @@
 package com.example.taskmanager;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 
 /**
@@ -12,28 +12,28 @@ import java.time.LocalDateTime;
  */
 public class Notification implements Serializable {
     private int id;                     // Unique identifier
-    private LocalDateTime reminderTime; // Notification time
+    private LocalDate reminderDate;     // Notification time
     private String message;             // Notification message
 
     /**
      * Constructs a new notification with the specified attributes.
      * 
-     * @param reminderTime the time when the notification should trigger
+     * @param reminderDate the time when the notification should trigger
      * @param message      the message content of the notification
      */
-    public Notification(int id, LocalDateTime reminderTime, String message) {
+    public Notification(int id, LocalDate reminderDate, String message) {
         this.id = id;
-        this.reminderTime = reminderTime;
+        this.reminderDate = reminderDate;
         this.message = message;
     }
     /**
      * Constructs a new notification without message.
      * 
-     * @param reminderTime the time when the notification should trigger
+     * @param reminderDate the time when the notification should trigger
      */
-    public Notification(int id, LocalDateTime reminderTime) {
+    public Notification(int id, LocalDate reminderDate) {
         this.id = id;
-        this.reminderTime = reminderTime;
+        this.reminderDate = reminderDate;
     }
 
     /**
@@ -48,11 +48,11 @@ public class Notification implements Serializable {
     public void setId(int id) {
         this.id = id;
     }
-    public LocalDateTime getReminderTime() {
-        return reminderTime;
+    public LocalDate getReminderDate() {
+        return reminderDate;
     }
-    public void setReminderTime(LocalDateTime reminderTime) {
-        this.reminderTime = reminderTime;
+    public void setReminderDate(LocalDate reminderDate) {
+        this.reminderDate = reminderDate;
     }
     public String getMessage() {
         return message;
@@ -68,7 +68,7 @@ public class Notification implements Serializable {
      */
     @Override
     public String toString() {
-        return "Notification{" + "id=" + id + ", reminderTime=" + reminderTime + ", message='" + message + '\'' + '}';
+        return "Notification{" + "id=" + id + ", reminderDate=" + reminderDate + ", message='" + message + '\'' + '}';
     }
 }
 

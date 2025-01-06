@@ -149,11 +149,11 @@ public class Task implements Serializable {
             throw new IllegalStateException("Cannot add a notification to a completed task.");
         }
 
-        if (notification.getReminderTime().isAfter(this.dueDate.atStartOfDay())) {
+        if (notification.getReminderDate().isAfter(this.dueDate)) {
             throw new IllegalArgumentException("Reminder time cannot be after the task due date.");
         }
 
-        if (notification.getReminderTime().toLocalDate().isBefore(LocalDate.now())) {
+        if (notification.getReminderDate().isBefore(LocalDate.now())) {
             throw new IllegalArgumentException("Reminder time cannot be before today.");
         }
         this.notifications.add(notification);
@@ -169,12 +169,21 @@ public class Task implements Serializable {
     }
 
     /**
-     * Returns a list of notifications for the task.
+     * Gets a list of notifications for the task.
      * 
      * @return a list of notifications
      */
     public List<Notification> getNotifications() {
         return new ArrayList<>(this.notifications);
+    }
+
+    /**
+     * Gets the last added notification
+     * 
+     * @return the last notification
+     */
+    public Notification getLastNotification() {
+        return this.notifications.get(this.notifications.size() - 1);
     }
 
     /**

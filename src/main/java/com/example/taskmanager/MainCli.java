@@ -198,7 +198,7 @@ public class MainCli {
      */
     private static void addN(Task task) {
         try {
-            LocalDateTime reminderTime = LocalDateTime.parse(promptInput("Enter Notification date and time (YYYY-MM-DDTHH:MM): "));
+            LocalDate reminderTime = LocalDate.parse(promptInput("Enter Notification date and time (YYYY-MM-DD): "));
 
             String message = promptInput("Enter Notification message: ");
             if (message.isEmpty()) {
@@ -433,7 +433,7 @@ public class MainCli {
     private static void searchTasks() {
         try {
             String title = promptInput("Give title to search: ");
-            taskService.searchTasksByTitle(title).forEach(System.out::println);
+            taskService.searchTasks(title).forEach(System.out::println);
 
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());

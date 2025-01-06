@@ -41,7 +41,7 @@ public class SearchTasksTester {
 
             // 3. Search Task Go home
             System.out.println("\nSearch results:");
-            taskService.searchTasksByTitle("Go h").forEach(System.out::println); 
+            taskService.searchTasks("Go h").forEach(System.out::println); 
 
 
         } catch (Exception e) {

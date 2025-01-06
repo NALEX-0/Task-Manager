@@ -46,10 +46,14 @@ public class CategoryService implements Serializable {
      * 
      * @param id the ID of the category to update
      * @param newName the new name for the category
-     * @throws IllegalArgumentException if the category with the specified ID does not exist
+     * @throws IllegalArgumentException if the category does not exist, or if a category
+     *                                  with the new name already exists                       
      */
     public void updateCategory(int id, String newName) {
         Category category = getCategoryById(id);
+        if (categories.stream().anyMatch(cat -> cat.getName().equals(newName))) {
+            throw new IllegalArgumentException("Category already exists.");
+        }
         category.setName(newName);
         saveCategories();
         
@@ -108,6 +112,16 @@ public class CategoryService implements Serializable {
             .filter(cat -> cat.getName().equals(name))
             .findFirst()
             .orElseThrow(() -> new IllegalArgumentException("Category not found."));
+    }
+
+    /**
+     * Gets the last added category
+     * <p>Used in MainApp (GUI)</p>
+     * 
+     * @return the last category
+     */
+    public Category getLastCategory() {
+        return getCategoryById(nextId - 1);
     }
     
     /**
