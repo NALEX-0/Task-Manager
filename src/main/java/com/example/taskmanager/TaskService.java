@@ -251,8 +251,13 @@ public class TaskService implements Serializable {
             .collect(Collectors.toList());
     }
 
+    /**
+     * Refreshes the list of Tasks.
+     * <p>Reads the data from JSON file.</p>
+     */
     public void refreshTasks() {
         tasks = JSONHandler.readData(TASKS_FILE, Task.class);
+        tasks.forEach(Task::checkAndUpdateStatus);
     }
 
     /**

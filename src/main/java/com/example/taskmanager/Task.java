@@ -192,9 +192,14 @@ public class Task implements Serializable {
     /**
      * Checks if the task is delayed and updates its status if necessary.
      */
+    // public void checkAndUpdateStatus() {
+    //     if (!STATUS_COMPLETED.equals(this.status) && this.dueDate.isBefore(LocalDate.now())) {
+    //         this.status = STATUS_DELAYED;
+    //     }
+    // }
     public void checkAndUpdateStatus() {
-        if (!STATUS_COMPLETED.equals(this.status) && this.dueDate.isBefore(LocalDate.now())) {
-            this.status = STATUS_DELAYED;
+        if (!STATUS_COMPLETED.equals(status) && dueDate.isBefore(LocalDate.now())) {
+            status = STATUS_DELAYED;
         }
     }
 

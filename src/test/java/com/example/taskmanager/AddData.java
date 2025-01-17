@@ -62,7 +62,7 @@ public class AddData {
             taskService.addTask("Complete project", "Finalize project report", Work, High, LocalDate.of(2025, 6, 20), "Open");
             taskService.addTask("Code reviews", "Do code reviews", Work, Medium, LocalDate.of(2025, 6, 30), "In Progress");
             taskService.addTask("Haircut", "Book a haircut appointment", Personal, Low, LocalDate.of(2024, 12, 10), "Completed");
-            taskService.addTask("Supermarket", "Go to the supermarket", Family, Medium, LocalDate.of(2024, 11, 1), "Open"); // Should be updated to Delayed automatically
+            taskService.addTask("Supermarket", "Go to the supermarket", Family, Medium, LocalDate.of(2025, 1, 1), "In Progress"); // Should be updated to Delayed automatically
             taskService.addTask("Bank", "Go to the bank", Personal, Medium, LocalDate.now().plusDays(6), "Open"); // Due in the next 6 days
 
             taskService.addNotificationToTask(taskService.getTaskByTitle("Complete project").getId(), LocalDate.of(2025, 4, 11));
