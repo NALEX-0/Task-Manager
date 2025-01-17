@@ -3,6 +3,7 @@ package com.example.taskmanager;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 /**
@@ -11,6 +12,8 @@ import java.util.List;
  * <p>Allows adding, updating, deleting, and retrieving categories.</p>
  */
 public class CategoryService implements Serializable {
+    TaskService taskService = new TaskService();
+
     private List<Category> categories = new ArrayList<>();
     private static final String CATEGORIES_FILE = "Category.json";
     private int nextId = 1; // Keeps track of the next available ID
@@ -54,11 +57,18 @@ public class CategoryService implements Serializable {
         if (categories.stream().anyMatch(cat -> cat.getName().equals(newName))) {
             throw new IllegalArgumentException("Category already exists.");
         }
+
         category.setName(newName);
         saveCategories();
         
-        // Replace updated Category in related tasks
-        TaskService.updateTasksWithChangedCategory(category);
+        List<Task> tasksToUpdate = taskService.getTasks().stream()
+        .filter(task -> task.getCategory().getId() == id)
+        .collect(Collectors.toList());
+
+        for (Task task : tasksToUpdate) {
+            taskService.updateTask(task.getId(), task.getTitle(), task.getDescription(),
+                            category, task.getPriority(), task.getDueDate(), task.getStatus());
+        }
     }
 
     /**
@@ -70,11 +80,17 @@ public class CategoryService implements Serializable {
      */
     public void deleteCategory(int id) {
         Category category = getCategoryById(id);
+
+        List<Task> tasksToDelete = taskService.getTasks().stream()
+        .filter(task -> task.getCategory().getId() == id)
+        .collect(Collectors.toList());
+
+        for (Task task : tasksToDelete) {
+            taskService.deleteTask(task.getId());
+        }
+        
         categories.remove(category);
         saveCategories();
-    
-        // Delete all Tasks in this Category
-        TaskService.deleteTasksByCategory(category);
     }
     
     /**

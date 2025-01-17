@@ -12,10 +12,10 @@
   },
   "notifications" : [ {
     "id" : 1,
-    "reminderDate" : [ 2025, 1, 11 ],
+    "reminderDate" : [ 2025, 4, 11 ],
     "message" : null
   } ],
-  "dueDate" : [ 2025, 4, 20 ],
+  "dueDate" : [ 2025, 6, 20 ],
   "status" : "Open",
   "nextNotId" : 1
 }, {
@@ -32,7 +32,7 @@
   },
   "notifications" : [ {
     "id" : 1,
-    "reminderDate" : [ 2025, 1, 13 ],
+    "reminderDate" : [ 2025, 4, 13 ],
     "message" : "Take the laptop with me"
   } ],
   "dueDate" : [ 2025, 6, 30 ],
@@ -83,7 +83,39 @@
     "name" : "Medium"
   },
   "notifications" : [ ],
-  "dueDate" : [ 2025, 1, 12 ],
+  "dueDate" : [ 2025, 1, 23 ],
+  "status" : "Open",
+  "nextNotId" : 0
+}, {
+  "id" : 6,
+  "title" : "kappa",
+  "description" : "",
+  "category" : {
+    "id" : 1,
+    "name" : "Work"
+  },
+  "priority" : {
+    "id" : 3,
+    "name" : "Medium"
+  },
+  "notifications" : [ ],
+  "dueDate" : [ 2025, 7, 25 ],
+  "status" : "Open",
+  "nextNotId" : 0
+}, {
+  "id" : 7,
+  "title" : "test",
+  "description" : "",
+  "category" : {
+    "id" : 2,
+    "name" : "Personal"
+  },
+  "priority" : {
+    "id" : 4,
+    "name" : "Low"
+  },
+  "notifications" : [ ],
+  "dueDate" : [ 2025, 3, 21 ],
   "status" : "Open",
   "nextNotId" : 0
 } ]

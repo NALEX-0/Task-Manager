@@ -1,7 +1,6 @@
 package com.example.taskmanager;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Scanner;
 
 /**
@@ -168,18 +167,30 @@ public class MainCli {
             
             System.out.println("Here are the available categories:");
             categoryService.getCategories().forEach(System.out::println);
-            String category = promptInput("Give Task category name: ");
+            String categoryName = promptInput("Enter new Task category ID: ");
+            int categoryId = ((categoryName.isEmpty()) ? 0 : Integer.parseInt(categoryName));
             
             System.out.println("Here are the available priorities:");
             priorityService.getPriorities().forEach(System.out::println);
-            String priority = promptInput("Give Task priority name: ");
+            String priorityName = promptInput("Enter new Task priority ID: ");
+            int priorityId = ((priorityName.isEmpty()) ? 0 : Integer.parseInt(priorityName));
             
             String dueDateInput = promptInput("Give Task due date (YYYY-MM-DD): ");
             LocalDate dueDate = LocalDate.parse(dueDateInput);
 
+            if (priorityId == 0) {
+                taskService.addTask(title, description, 
+                                categoryService.getCategoryById(categoryId),
+                                priorityService.getPriorityByName("Default"),
+                                dueDate);
+
+                System.out.println("Task added successfully!");
+                return;
+            }
+
             taskService.addTask(title, description, 
-                                categoryService.getCategoryByName(category),
-                                priorityService.getPriorityByName(priority),
+                                categoryService.getCategoryById(categoryId),
+                                priorityService.getPriorityById(priorityId),
                                 dueDate);
     
             System.out.println("Task added successfully!");
@@ -231,11 +242,13 @@ public class MainCli {
     
             System.out.println("Available Categories:");
             categoryService.getCategories().forEach(System.out::println);
-            String categoryName = promptInput("Enter new Task category name: ");
-    
+            String categoryName = promptInput("Enter new Task category ID: ");
+            int categoryId = ((categoryName.isEmpty()) ? 0 : Integer.parseInt(categoryName));
+
             System.out.println("Available Priorities:");
             priorityService.getPriorities().forEach(System.out::println);
-            String priorityName = promptInput("Enter new Task priority name: ");
+            String priorityName = promptInput("Enter new Task priority ID: ");
+            int priorityId = ((priorityName.isEmpty()) ? 0 : Integer.parseInt(priorityName));
     
             String date = promptInput("Enter new Task due date (YYYY-MM-DD): ");
 
@@ -247,8 +260,8 @@ public class MainCli {
             taskService.updateTask(taskId,
                 title.isEmpty() ? task.getTitle() : title,
                 description.isEmpty() ? task.getDescription() : description,
-                categoryName.isEmpty() ? task.getCategory() : categoryService.getCategoryByName(categoryName),
-                priorityName.isEmpty() ? task.getPriority() : priorityService.getPriorityByName(priorityName),
+                categoryName.isEmpty() ? task.getCategory() : categoryService.getCategoryById(categoryId),
+                priorityName.isEmpty() ? task.getPriority() : priorityService.getPriorityById(priorityId),
                 date.isEmpty() ? task.getDueDate() : LocalDate.parse(date), 
                 status.isEmpty() ? task.getStatus() : status
             );

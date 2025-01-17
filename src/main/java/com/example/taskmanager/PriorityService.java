@@ -3,6 +3,7 @@ package com.example.taskmanager;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 /**
@@ -12,6 +13,8 @@ import java.util.List;
  * It ensures that a default priority always exists.</p>
  */
 public class PriorityService implements Serializable {
+    TaskService taskService = new TaskService();
+
     private List<Priority> priorities = new ArrayList<>();
     private static final String PRIORITIES_FILE = "Priority.json";
     private static final Priority DEFAULT_PRIORITY  = new Priority (1, "Default");
@@ -67,11 +70,18 @@ public class PriorityService implements Serializable {
         if (priorities.stream().anyMatch(p -> p.getName().equals(newName))) {
             throw new IllegalArgumentException("Priority already exists.");
         }
+
         priority.setName(newName);
         savePriorities();
 
-        // Replace updated Priority in related tasks
-        TaskService.updateTasksWithChangedPriority(priority);
+        List<Task> tasksToUpdate = taskService.getTasks().stream()
+        .filter(task -> task.getPriority().getId() == id)
+        .collect(Collectors.toList());
+
+        for (Task task : tasksToUpdate) {
+            taskService.updateTask(task.getId(), task.getTitle(), task.getDescription(),
+                            task.getCategory(), priority, task.getDueDate(), task.getStatus());
+        }
     }
 
     /**
@@ -87,11 +97,17 @@ public class PriorityService implements Serializable {
             throw new IllegalArgumentException("Cannot delete the default priority.");
         }
 
+        List<Task> tasksToUpdate = taskService.getTasks().stream()
+        .filter(task -> task.getPriority().getId() == id)
+        .collect(Collectors.toList());
+
+        for (Task task : tasksToUpdate) {
+            taskService.updateTask(task.getId(), task.getTitle(), task.getDescription(),
+                            task.getCategory(), DEFAULT_PRIORITY, task.getDueDate(), task.getStatus());
+        }
+
         priorities.remove(priority);
         savePriorities();
-
-        // Replace deleted Priority with "Default" in related tasks
-        TaskService.updateTasksWithChangedPriority(DEFAULT_PRIORITY);
     }
 
     /**

@@ -121,42 +121,6 @@ public class TaskService implements Serializable {
         task.setStatus(status);
         saveTasks();
     }
-
-    /**
-     * Updates tasks with a changed priority.
-     * 
-     * <p>It is a static method</p>
-     * @param updatedPriority the updated priority
-     */
-    public static void updateTasksWithChangedPriority(Priority updatedpriority) {
-        List<Task> tasks = JSONHandler.readData("Task.json", Task.class);
-    
-        tasks.forEach(task -> {
-            if (task.getPriority().getId() == updatedpriority.getId()) {
-                task.setPriority(updatedpriority);
-            }
-        });
-    
-        JSONHandler.writeData("Task.json", tasks);
-    }
-    
-    /**
-     * Updates tasks with a changed category.
-     * 
-     * <p>It is a static method</p>
-     * @param updatedCategory the updated category
-     */
-    public static void updateTasksWithChangedCategory(Category updatedCategory) {
-        List<Task> tasks = JSONHandler.readData("Task.json", Task.class);
-    
-        tasks.forEach(task -> {
-            if (task.getCategory().getId() == updatedCategory.getId()) {
-                task.setCategory(updatedCategory);
-            }
-        });
-    
-        JSONHandler.writeData("Task.json", tasks);
-    }
     
     /**
      * Deletes a task by its ID.
@@ -164,21 +128,9 @@ public class TaskService implements Serializable {
      * @param id the ID of the task to delete
      */
     public void deleteTask(int id) {
-        tasks.removeIf(t -> t.getId() == id);
+        Task task = getTaskByid(id);
+        tasks.remove(task);
         saveTasks();
-    }
-
-    /**
-     * Deletes all tasks associated with a specified category.
-     * 
-     * <p>It is a static method</p>
-     * @param category the category whose tasks to delete
-     */
-    public static void deleteTasksByCategory(Category category) {
-        List<Task> tasks = JSONHandler.readData("Task.json", Task.class);
-    
-        tasks.removeIf(task -> task.getCategory().equals(category));
-        JSONHandler.writeData("Task.json", tasks);
     }
     
     /**
@@ -199,6 +151,7 @@ public class TaskService implements Serializable {
      * @return a list of all tasks
      */
     public List<Task> getTasks() {
+        refreshTasks();
         return new ArrayList<>(tasks);
     }
 
@@ -209,6 +162,7 @@ public class TaskService implements Serializable {
      * @return a list of tasks with the specified status
      */
     public List<Task> getTasksByStatus(String status) {
+        refreshTasks();
         return tasks.stream()
             .filter(t -> t.getStatus().equalsIgnoreCase(status))
             .collect(Collectors.toList());
@@ -220,6 +174,7 @@ public class TaskService implements Serializable {
      * @return a list of tasks due in the next 7 days
      */
     public List<Task> getTasksDueIn7Days() {
+        refreshTasks();
         return tasks.stream()
             .filter(t -> {
                 LocalDate dueDate = t.getDueDate();
@@ -237,6 +192,7 @@ public class TaskService implements Serializable {
      * @throws IllegalArgumentException if the task is not found
      */
     public Task getTaskByTitle(String title) {
+        refreshTasks();
         return tasks.stream()
             .filter(t -> t.getTitle().equals(title))
             .findFirst()
@@ -251,6 +207,7 @@ public class TaskService implements Serializable {
      * @throws IllegalArgumentException if the task is not found
      */
     public Task getTaskByid(int id) {
+        refreshTasks();
         return tasks.stream()
             .filter(t -> t.getId() == id)
             .findFirst()
@@ -264,6 +221,7 @@ public class TaskService implements Serializable {
      * @return the last task
      */
     public Task getLastTask() {
+        refreshTasks();
         return getTaskByid(nextId - 1);
     }
 
@@ -276,6 +234,7 @@ public class TaskService implements Serializable {
      * @throws IllegalArgumentException if the search string is null or empty
      */
     public List<Task> searchTasks(String query) {
+        refreshTasks();
         if (query == null || query.isBlank()) {
             throw new IllegalArgumentException("Search query cannot be null or empty.");
         }
@@ -290,6 +249,10 @@ public class TaskService implements Serializable {
                 task.getPriority().getName().toLowerCase().contains(lowerCaseQuery) ||
                 task.getDueDate().toString().contains(lowerCaseQuery))
             .collect(Collectors.toList());
+    }
+
+    public void refreshTasks() {
+        tasks = JSONHandler.readData(TASKS_FILE, Task.class);
     }
 
     /**
