@@ -19,7 +19,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
  */
 public class JSONHandler implements Serializable {
     // Fix path accordingly with computer/server
-    // private static final String DATA_DIR = "TaskManager/medialab/";
+    // private static final String DATA_DIR = "TaskManager/src/main/resources/medialab/";
     private static final String DATA_DIR = "C:/dev/code/Java/multimedia_project/TaskManager/src/main/resources/medialab/";
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
